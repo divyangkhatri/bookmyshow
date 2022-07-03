@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "474718912104",
+    "firebase_url": "https://bookmys.firebaseio.com",
+    "project_id": "bookmys",
+    "storage_bucket": "bookmys.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474718912104:android:244855bcab65f78e6e45dd",
+        "android_client_info": {
+          "package_name": "com.bookmyshow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474718912104-6imkqklbugtk6vhgoo6c8jm12ddbfqto.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu3qtFfdX0k2wyz5_RkyF5n3F7NSGRV7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474718912104-6imkqklbugtk6vhgoo6c8jm12ddbfqto.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "474718912104-do1egltth9kb3sirs00n91gjf3it7ngt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.BookMyShow"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
