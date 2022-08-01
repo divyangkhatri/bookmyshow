@@ -84,7 +84,6 @@ const MapViewScreen = ({navigation, route}) => {
   const [isShownToast, setShownToast] = useState(false);
 
   React.useLayoutEffect(() => {
-    console.log(route);
     navigation.setOptions({
       title: route.params.plays
         ? route.params.plays
@@ -149,7 +148,6 @@ const MapViewScreen = ({navigation, route}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMapLoaded]);
   useEffect(() => {
-    console.log('called', isSortOpen);
     if (isSortOpen) {
       Animating();
     } else {
@@ -159,7 +157,6 @@ const MapViewScreen = ({navigation, route}) => {
   }, [isSortOpen]);
 
   const Animating = () => {
-    console.log(isSortOpen);
 
     Animated.timing(animatingValue, {
       toValue: Platform.OS === 'ios' ? safeAreaHeight * 0.25 : height * 0.25,

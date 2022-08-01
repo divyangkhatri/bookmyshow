@@ -14,7 +14,6 @@ import {
 import Colors from '../assets/Colors';
 import {normalize} from 'react-native-elements';
 import GetHeight from '../Functions/GetHeight';
-import {round} from 'react-native-reanimated';
 const {width, height} = Dimensions.get('window');
 
 const ProfileHomeScreen = ({navigation}) => {

@@ -4,7 +4,6 @@ import FilterScreen from '../Views/FilterScreen';
 import FilterDetailScreen from '../Views/FilterDetailScreen';
 const FilterStack = createStackNavigator();
 const Filters = ({route}) => {
-  console.log('route', route);
   return (
     <FilterStack.Navigator>
       <FilterStack.Screen

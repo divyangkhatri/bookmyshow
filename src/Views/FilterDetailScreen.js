@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useLayoutEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   View,
@@ -85,8 +85,6 @@ const FilterDetailScreen = ({navigation, route}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [route.params?.selectedValue]);
   useEffect(() => {
-    console.log('sel', selected);
-    console.log('route', route.params?.selectedValue);
     if (
       selected !== route.params?.selectedValue &&
       JSON.stringify(buttonHeight) === JSON.stringify(0)
@@ -233,7 +231,6 @@ const FilterDetailScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={applyButton}
             onPress={() => {
-              console.log('sele', selected);
               if (selected) {
                 navigation.navigate('FilterScreen', {
                   key: paramsValue,
@@ -256,7 +253,7 @@ const FilterDetailScreen = ({navigation, route}) => {
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#f0f0f0',
   },
   mainView: {
     // flex: 1,

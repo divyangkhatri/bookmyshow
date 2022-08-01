@@ -219,7 +219,6 @@ const EventsScreen = ({navigation, route}) => {
           <View style={filterView}>
             <TouchableWithoutFeedback
               onPress={() => {
-                console.log('cat', getDate);
                 navigation.navigate('Filters', {
                   applyDate: getDate,
                   applyCategory: getCategory,

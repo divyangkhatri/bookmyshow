@@ -31,8 +31,6 @@ const HomeScreen = ({route, navigation}) => {
   YellowBox.ignoreWarnings(['Require cycle:']);
 
   const openUrl = (event, value) => {
-    console.log('i m called');
-
     const screen = event.url.split('/')[2];
     const id = event.url.split('/')[3];
     if (screen === 'moviesscreen') {
@@ -56,7 +54,6 @@ const HomeScreen = ({route, navigation}) => {
 
   useEffect(() => {
     AsyncStorage.getItem('selectedCity', (error, value) => {
-      console.log(value);
       if (value !== null) {
         setSelectedCity(value);
         // SplashScreen.hide();
@@ -91,7 +88,6 @@ const HomeScreen = ({route, navigation}) => {
       timeout: 15000,
     })
       .then((location) => {
-        console.log(location);
         axios
           .get(
             'https://maps.googleapis.com/maps/api/geocode/json?address=' +
@@ -102,11 +98,10 @@ const HomeScreen = ({route, navigation}) => {
               'AIzaSyBrS7UQTv9z3z3R7v-FHwjhRZFHVp0YVrY',
           )
           .then((response) => {
-            console.log(response.data);
           })
-          .catch((error) => console.log(error));
+          .catch((error) => console.error(error));
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   useEffect(() => {
@@ -225,14 +220,12 @@ const HomeScreen = ({route, navigation}) => {
           item.toLowerCase().includes(text.toLowerCase()),
         ),
       );
-      console.log('temp', tempData1);
       // }
     };
 
     const handleClick = (item) => {
       setLoading(true);
       AsyncStorage.setItem('selectedCity', item, (err) => {
-        console.log('MYError', err);
         if (!err) {
           setSelectedCity(item);
           setLoading(false);
@@ -404,7 +397,6 @@ const HomeScreen = ({route, navigation}) => {
                 }
               }}
               renderItem={({section, item}) => {
-                console.log(searchText === '');
                 if (section.key === 'Popular Cities') {
                   return (
                     <FlatList

@@ -43,6 +43,7 @@ const ImageSlider = () => {
     <View style={mainView}>
       <ScrollView
         horizontal={true}
+        showsHorizontalScrollIndicator={false}
         pagingEnabled={true}
         ref={(scrollView) => {
           scrollRef = scrollView;

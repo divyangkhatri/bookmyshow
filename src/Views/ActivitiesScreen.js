@@ -224,7 +224,6 @@ const ActivitiesScreen = ({navigation, route}) => {
           <View style={filterView}>
             <TouchableWithoutFeedback
               onPress={() => {
-                console.log('cat', getDate);
                 navigation.navigate('ActivitiesFilter', {
                   applyDate: getDate,
                   applyCategory: getCategory,
@@ -418,7 +417,6 @@ const FlatListView = (prop) => {
             tempDate.getDate() + 1,
           );
     if (prop.date !== 'Today' && prop.date !== 'Tomorrow' && prop.date) {
-      console.log('imd', prop.date.getFullYear());
       dt = new Date(
         prop.date.getFullYear(),
 
@@ -426,7 +424,6 @@ const FlatListView = (prop) => {
 
         prop.date.getDate(),
       );
-      console.log('new Date', dt);
     }
     if (prop.category && prop.date && prop.price.length > 0) {
       tempData = data.filter((item) => {

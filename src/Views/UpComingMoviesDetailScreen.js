@@ -218,10 +218,9 @@ const UpComingMoviesDetailScreen = ({navigation, route}) => {
               url: 'bookmyshow://moviesscreen/' + route.params.data.id,
             })
               .then((res) => {
-                console.log(res);
               })
               .catch((err) => {
-                err && console.log(err);
+                err && console.error(err);
               });
           }}>
           <Image
@@ -241,7 +240,6 @@ const UpComingMoviesDetailScreen = ({navigation, route}) => {
     let tempData = route.params.data;
     let filterData = movieDetail.filter((item) => item.id === tempData.id);
     // filterData[0].detail.merge(tempData);
-    // console.log(fil);
     setMovie({...filterData[0].detail, ...tempData});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -287,7 +285,6 @@ const UpComingMoviesDetailScreen = ({navigation, route}) => {
   } = styles;
 
   const MainSectionHeader = () => {
-    console.log(isReady);
     return (
       <View style={mainHeaderView}>
         <View style={youtubeView}>
@@ -301,7 +298,7 @@ const UpComingMoviesDetailScreen = ({navigation, route}) => {
             // onReady={(e) => setReady(true)}
             // onChangeState={(e) => setReady(true)}
             // onChangeQuality={(e) => this.setState({quality: e.quality})}
-            onError={(e) => console.log('err', e)}
+            onError={(e) => console.error('err', e)}
           />
         </View>
         <View style={moviesDetailView}>

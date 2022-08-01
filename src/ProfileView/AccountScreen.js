@@ -47,7 +47,6 @@ const AccountScreen = ({navigation, route}) => {
       timeout: 15000,
     })
       .then((location) => {
-        console.log(location);
         axios
           .get(
             'https://maps.googleapis.com/maps/api/geocode/json?address=' +
@@ -57,12 +56,10 @@ const AccountScreen = ({navigation, route}) => {
               '&key=' +
               'AIzaSyBrS7UQTv9z3z3R7v-FHwjhRZFHVp0YVrY',
           )
-          .then((response) => {
-            console.log(response.data);
-          })
-          .catch((error) => console.log(error));
+          .then((response) => {})
+          .catch((error) => console.error(error));
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   };
 
   const OpenModal = () => {
@@ -179,9 +176,8 @@ const AccountScreen = ({navigation, route}) => {
 
     const handleClick = (item) => {
       setLoading(true);
-      console.log(item);
       AsyncStorage.setItem('selectedCity', item, (err) => {
-        console.log('MYError', err);
+        console.error('MYError', err);
         if (!err) {
           setLocation(item);
           setLoading(false);

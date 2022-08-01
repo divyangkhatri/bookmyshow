@@ -426,7 +426,6 @@ const PlaysFilter = ({navigation, route}) => {
                   <TouchableWithoutFeedback
                     onPress={() => setLeftViewSelected(true)}>
                     <View style={leftHeadingView}>
-                      {console.log(dateChange)}
                       <Text style={calenderTitle}>Start Date</Text>
                       <Text style={yearTitle}>
                         {dateChange && filterDate(dateChange)[3]}

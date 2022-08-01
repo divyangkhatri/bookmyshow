@@ -1,5 +1,9 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  getFocusedRouteNameFromRoute,
+  useRoute,
+} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Image, StatusBar, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native';
@@ -23,7 +27,7 @@ export default function Routing() {
         <Tab.Screen
           name="Home"
           component={Home}
-          options={{
+          options={({route}) => ({
             tabBarLabel: 'Home',
             tabBarIcon: ({focused}) => {
               let imgName = focused
@@ -31,7 +35,14 @@ export default function Routing() {
                 : require('../assets/images/icon/TabBarImages/Home.png');
               return <Image source={imgName} style={iconSize} />;
             },
-          }}
+            tabBarVisible: ((route) => {
+              const routeName = getFocusedRouteNameFromRoute(route) ?? '';
+              if (routeName === 'HomeScreen' || routeName === '') {
+                return true;
+              }
+              return false;
+            })(route),
+          })}
         />
         <Tab.Screen
           name="Store"
@@ -64,7 +75,7 @@ export default function Routing() {
         <Tab.Screen
           name="Profile"
           component={Profile}
-          options={{
+          options={({route}) => ({
             tabBarLabel: 'Profile',
             tabBarIcon: ({focused}) => {
               let imgName = focused
@@ -72,7 +83,14 @@ export default function Routing() {
                 : require('../assets/images/icon/TabBarImages/Profile.png');
               return <Image source={imgName} style={iconSize} />;
             },
-          }}
+            tabBarVisible: ((route) => {
+              const routeName = getFocusedRouteNameFromRoute(route) ?? '';
+              if (routeName === 'ProfileModals' || routeName === '') {
+                return true;
+              }
+              return false;
+            })(route),
+          })}
         />
       </Tab.Navigator>
     </NavigationContainer>

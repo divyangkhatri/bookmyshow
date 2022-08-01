@@ -80,27 +80,20 @@ const LoginScreen = ({navigation}) => {
         // use credentialState response to ensure the user is authenticated
         if (credentialState === AppleAuthCredentialState.AUTHORIZED) {
           // user is authenticated
-          console.log('xyz', credentialState);
         }
       } catch (e) {
-        console.log('error in apple singin' + e);
+        console.error('error in apple singin' + e);
       }
     } else {
-      console.log('not supported device');
+      console.error('not supported device');
     }
   };
 
   const onFacebookButtonPress = () => {
-    LoginManager.logInWithPermissions([
-      'public_profile',
-      'email'
-
-    ]).then(
+    LoginManager.logInWithPermissions(['public_profile', 'email']).then(
       function (result) {
         if (result.isCancelled) {
-          console.log('Login cancelled');
         } else {
-          console.log(result);
           let req = new GraphRequest(
             '/me',
             {
@@ -113,14 +106,14 @@ const LoginScreen = ({navigation}) => {
               },
             },
             (err, res) => {
-              console.log(err, res);
+              console.error(err, res);
             },
           );
           new GraphRequestManager().addRequest(req).start();
         }
       },
       function (error) {
-        console.log('Login fail with error: ' + error);
+        console.error('Login fail with error: ' + error);
       },
     );
   };

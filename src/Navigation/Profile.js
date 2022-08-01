@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import {DeviceEventEmitter, InteractionManager} from 'react-native';
 const Stack = createStackNavigator();
 import Colors from '../assets/Colors';
 import Events from './Events';
@@ -7,21 +8,17 @@ import AccountScreen from '../ProfileView/AccountScreen';
 import ProfileModals from './ProfileModals';
 
 const Profile = ({route, navigation}) => {
-  React.useLayoutEffect(() => {
-    if (
-      (route && route.state && route.state.index > 0) ||
-      (route &&
-        route.state &&
-        route.state.routes &&
-        route.state.routes[0] &&
-        route.state.routes[0].state &&
-        route.state.routes[0].state.index > 0)
-    ) {
-      navigation.setOptions({tabBarVisible: false});
-    } else {
-      navigation.setOptions({tabBarVisible: true});
-    }
-  }, [navigation, route]);
+  useEffect(() => {
+    const showHideTabBar = (flag) => {
+      InteractionManager.runAfterInteractions(() => {
+        navigation.setOptions({tabBarVisible: flag});
+      });
+    };
+    DeviceEventEmitter.addListener('showHideTabBar', showHideTabBar);
+    return () =>
+      DeviceEventEmitter.removeListener('showHideTabBar', showHideTabBar);
+  }, []);
+
   const option = {
     headerBackTitle: null,
     headerTintColor: 'white',

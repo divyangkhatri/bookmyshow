@@ -119,7 +119,6 @@ const FilterScreen = ({navigation, route}) => {
     } else {
       setParamKey(undefined);
     }
-    console.log('param1', route.params?.selCategory);
     if (route.params?.selCategory) {
       setCategorySelected(route.params?.selCategory);
     } else {
@@ -129,7 +128,6 @@ const FilterScreen = ({navigation, route}) => {
   }, [route.params?.key, route.params?.selCategory]);
 
   React.useEffect(() => {
-    console.log('lome', route);
     if (
       route.params?.applyCategory ||
       route.params?.applyDate ||
@@ -204,7 +202,6 @@ const FilterScreen = ({navigation, route}) => {
   };
 
   const handleCellClick = (item, section) => {
-    console.log(section);
 
     if (item.name === 'Show All' || item.name === 'Show Less') {
       setShowMore(!isShowMore);
@@ -261,7 +258,6 @@ const FilterScreen = ({navigation, route}) => {
   tempDataFilter();
 
   const renderedView = (item, section, index) => {
-    console.log('section', section);
     return (
       <TouchableWithoutFeedback onPress={() => handleCellClick(item, section)}>
         <View style={renderParentView}>
@@ -291,7 +287,6 @@ const FilterScreen = ({navigation, route}) => {
                   {paramKey === item.name && (
                     <Text style={renderSelectedText}>{categorySelected} </Text>
                   )}
-                  {console.log('category sel', categorySelected)}
                   {categorySelected === item.name && (
                     <Text style={renderSelectedText}>{'All'} </Text>
                   )}
@@ -386,7 +381,7 @@ const FilterScreen = ({navigation, route}) => {
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#f0f0f0',
   },
   mainView: {
     // flex: 1,

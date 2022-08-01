@@ -272,7 +272,6 @@ const ActivitiesFilter = ({navigation, route}) => {
   ]);
 
   useEffect(() => {
-    console.log('sss', route.params.applyPrice, selected);
     if (
       (categorySelected !== route.params?.applyCategory ||
         dateSelected !== route.params?.applyDate ||
@@ -490,7 +489,6 @@ const ActivitiesFilter = ({navigation, route}) => {
                   <TouchableWithoutFeedback
                     onPress={() => setLeftViewSelected(true)}>
                     <View style={leftHeadingView}>
-                      {console.log(dateChange)}
                       <Text style={calenderTitle}>Start Date</Text>
                       <Text style={yearTitle}>
                         {dateChange && filterDate(dateChange)[3]}

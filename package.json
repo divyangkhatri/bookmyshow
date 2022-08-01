@@ -37,7 +37,7 @@
     "react-native-share": "^3.3.0",
     "react-native-splash-screen": "^3.2.0",
     "react-native-static-safe-area-insets": "^2.0.0",
-    "react-native-vector-icons": "^6.6.0",
+    "react-native-vector-icons": "^7.1.0",
     "react-native-youtube": "^2.0.1"
   },
   "devDependencies": {

@@ -13,14 +13,7 @@ import UpComingMoviesDetailScreen from '../Views/UpComingMoviesDetailScreen';
 import Sports from './Sports';
 import Activities from './Activities';
 
-const Home = ({route, navigation}) => {
-  React.useLayoutEffect(() => {
-    if (route && route.state && route.state.index > 0) {
-      navigation.setOptions({tabBarVisible: false});
-    } else {
-      navigation.setOptions({tabBarVisible: true});
-    }
-  }, [navigation, route]);
+const Home = () => {
   const option = {
     headerBackTitle: null,
     headerTintColor: 'white',

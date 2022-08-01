@@ -122,7 +122,6 @@ const MoviesScreen = ({navigation, route}) => {
           }
         });
       });
-      console.log('temp ', tempData);
       navigation.navigate('UpComingMoviesDetailScreen', {
         data: tempData,
       });
@@ -179,8 +178,6 @@ const MoviesScreen = ({navigation, route}) => {
     const [isAnimating, setAnimating] = useState(false);
 
     useEffect(() => {
-      console.log('cjk', checkbox);
-      console.log('rescjk', checkboxResult);
       if (
         state.isModalOpen &&
         checkbox !== checkboxResult &&
@@ -188,7 +185,6 @@ const MoviesScreen = ({navigation, route}) => {
         JSON.parse(JSON.stringify(buttonHeight)) ===
           JSON.parse(JSON.stringify(0))
       ) {
-        console.log('ccc');
         showAnimation();
       } else {
         if (checkbox === checkboxResult) {
@@ -696,8 +692,6 @@ const FlatListView = (prop) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chkResult]);
 
-  console.log('res', tempData);
-  console.log('chk', chkResult);
   const filterLanguage = () => {
     if (chkResult.length > 0) {
       setTempData(

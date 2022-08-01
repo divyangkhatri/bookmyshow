@@ -103,7 +103,6 @@ const DetailsMapScreen = ({navigation, route}) => {
       data.forEach((item) => {
         let temp = [];
         item.data.forEach((items) => {
-          console.log(items.venue.split(','));
           if (items.venue.split(',')[0] === venue) {
             temp.push(items);
           }
@@ -113,7 +112,6 @@ const DetailsMapScreen = ({navigation, route}) => {
       });
     }
 
-    console.log('dd', filterData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
